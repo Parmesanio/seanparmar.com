@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCoffee} from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCoffee)
+
 
 class App extends Component {
   render() {
@@ -20,6 +26,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <FontAwesomeIcon icon={['fab', 'app-store']} />
       </div>
     );
   }
