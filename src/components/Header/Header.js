@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
@@ -6,7 +7,7 @@ const Header = () => {
         <header>
             <nav>
                 <a href="#"><h1>Sean Parmar</h1></a>
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
                 <a href="#">Portfolio</a>
                 <a href="#">Contact</a>
                 <a href="#" target="_blank" rel="noopener noreferrer">Blog</a>
