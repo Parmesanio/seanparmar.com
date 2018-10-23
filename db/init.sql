@@ -35,7 +35,8 @@ create table admins (
     auth0_id text,
     username text,
     email text,
-    photos text
+    photos text,
+    created_at date not null default current_date
 );
 CREATE SEQUENCE admins_id_seq OWNED BY admins.id;
 select * from admins
@@ -51,3 +52,5 @@ create table blog_posts (
 );
 CREATE SEQUENCE blog_posts_id_seq OWNED BY blog_posts.id;
 select * from blog_posts
+-- Selects Dates with mm/dd/yy format
+SELECT TO_CHAR(blog_posts.posting_date :: DATE, 'Mon dd, yyyy') from blog_posts;
