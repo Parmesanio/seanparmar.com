@@ -2,7 +2,7 @@ import React from 'react';
 import './showcase.scss';
 
 const Showcase = () => {
-    return ( <div>Showcase</div> );
+    return ( <section className="showcase">Showcase</section> );
 }
  
 export default Showcase;
