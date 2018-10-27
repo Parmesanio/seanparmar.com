@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import routes from './routes';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="App">
           <Header />
           {routes}
+          <Footer />
       </div>
     );
   }

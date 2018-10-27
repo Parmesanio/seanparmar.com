@@ -2,7 +2,7 @@
 @media only screen and (min-width: 0px) {
     .contact {
         form {
-            background: $primary-background-color;
+            background: $primary-background-color-light;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -12,6 +12,7 @@
                 display: block;
                 color: $primary-color;
                 margin: 1em auto;
+                outline-color: $primary-color;
                 padding: 12px 20px;
                 width: 70%;
                 &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
