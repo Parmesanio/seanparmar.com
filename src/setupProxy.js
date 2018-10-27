@@ -5,5 +5,5 @@ module.exports = function(app) {
         '/admin',
         '/auth',
         '/send'
-    ],{ target: 'http://localhost:4001/' }));
+    ],{ target: 'http://localhost:4000/' }));
 }
