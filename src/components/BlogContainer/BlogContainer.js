@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setBlogPosts } from '../../redux/blogReducer';
+import BlogPosts from '../BlogPosts/BlogPosts';
+import './blogcontainer.scss';
 
 class BlogContainer extends Component {
     constructor(props) {
@@ -12,10 +14,12 @@ class BlogContainer extends Component {
     }
     render() { 
         console.log(this.props);
+        let blogPosts = withBlogData(BlogPosts, {...this.props});
         
         return ( 
             <div className="blog-container">
                 BlogContainer
+                {blogPosts}
             </div>
          );
     }
@@ -31,3 +35,7 @@ const mapDispatchToProps = {
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(BlogContainer);
+
+function withBlogData(WrappedComponent, data) {
+    return <WrappedComponent data={data} />
+}

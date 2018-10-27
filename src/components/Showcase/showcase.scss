@@ -1,5 +1,6 @@
+@import '../../index.scss';
 @media only screen and (min-width: 0px) {
     .showcase {
-        padding-top: 70px;
+        padding-top: $padding-top;
     }
 }
