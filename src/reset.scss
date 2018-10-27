@@ -1,4 +1,4 @@
-
+@import './index.scss';
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -8,10 +8,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
+    color: $primary-background-color;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box; 
+    text-decoration: none;
 }
 * {
   box-sizing: border-box; 
