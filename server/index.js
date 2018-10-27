@@ -1,9 +1,18 @@
+require('dotenv').config();
 const express       = require('express'),
       bodyParser    = require('body-parser'),
+      massive       = require('massive'),
       nC            = require('./controllers/nodemailer'),
+      bC            = require('./controllers/blogController'),
       app = express();
 
 app.use(bodyParser.json());
+
+
+massive(process.env.CONNECTION_STRING).then(db => {
+      app.set('db', db);
+      console.log('DB Set');
+}).catch(err => console.log('Err in Massive'));
 
 // -------------- ENDPOINTS 
 
@@ -11,7 +20,7 @@ app.use(bodyParser.json());
 // app.get('/auth/callback', )
 
 // Blog Endpoints
-// app.get('/admin/blog/posts', )
+app.get('/admin/blog/posts', bC.get_posts)
 // app.get('/admin/blog/posts/:id', )
 // app.post('/admin/blog/posts', )
 // app.put('/admin/blog/posts/:id', )
