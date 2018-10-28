@@ -18,7 +18,7 @@ class Header extends Component{
         let { isToggled } = this.state;
     return ( 
         <header>
-            <a href="/"><h1>Sean Parmar</h1></a>
+            <Link to="/"><h1>Sean Parmar</h1></Link>
             <nav className={`${isToggled ? 'show' : ''}`}>
                 <Link to="/">Home</Link>
                 <a href="#">Portfolio</a>

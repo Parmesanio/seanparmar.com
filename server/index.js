@@ -23,7 +23,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 app.get('/admin/blog/posts', bC.get_posts)
 // app.get('/admin/blog/posts/:id', )
 app.post('/admin/blog/posts', bC.create_post)
-// app.put('/admin/blog/posts/:id', )
+app.put('/admin/blog/posts/:id', bC.edit_post)
 // app.delete('/admin/blog/posts/:id', )
 
 // Nodemailer Endpoint

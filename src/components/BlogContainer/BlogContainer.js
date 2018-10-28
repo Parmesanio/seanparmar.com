@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setBlogPosts, createBlogPost } from '../../redux/blogReducer';
+import { setBlogPosts, createBlogPost, editBlogPost } from '../../redux/blogReducer';
 import BlogPosts from '../BlogPosts/BlogPosts';
 import BlogForm from '../BlogForm/BlogForm';
 import './blogcontainer.scss';
@@ -16,6 +16,16 @@ class BlogContainer extends Component {
     }
     componentDidMount() {
         this.props.setBlogPosts();
+        setTimeout(() => {
+            let post = this.props.match.params.id && this.props.blogPosts.find(post => {
+                return post.id == this.props.match.params.id
+            });
+           post &&  this.setState({
+                postTitle: post.title,
+                postURL: post.post_imgurl,
+                postBody: post.body
+            })
+        }, 1000)
     }
     handleInputChange = (event) => {
         this.setState({
@@ -24,7 +34,16 @@ class BlogContainer extends Component {
     }
      withBlogData = (WrappedComponent, data) => {
         if(WrappedComponent == BlogForm) {
-            return <WrappedComponent createBlogPost={data.createBlogPost} history={data.history} handleInputChange={this.handleInputChange} postTitle={this.state.postTitle} postURL={this.state.postURL} postBody={this.state.postBody} />
+            return <WrappedComponent 
+                        createBlogPost={data.createBlogPost}
+                        editBlogPost={data.editBlogPost} 
+                        history={data.history} 
+                        match={data.match}
+                        handleInputChange={this.handleInputChange} 
+                        blogPosts={data.blogPosts}
+                        postTitle={this.state.postTitle} 
+                        postURL={this.state.postURL} 
+                        postBody={this.state.postBody} />
         } else {
             return <WrappedComponent data={data} />
         }
@@ -36,8 +55,10 @@ class BlogContainer extends Component {
         let blogForm = this.withBlogData(BlogForm, {...this.props})
         return ( 
             <div className="blog-container">
-                {this.props.location.pathname == '/blog/posts' && blogPosts}
-                {this.props.location.pathname == '/blog/posts/create' && blogForm}
+                {this.props.match.path == '/blog/posts' && blogPosts}
+                {this.props.match.path == '/blog/posts/:id' && blogPosts}
+                {this.props.match.path == '/blog/posts/create' && blogForm}
+                {this.props.match.path == '/blog/posts/:id/edit' && blogForm}
             </div>
          );
     }
@@ -50,11 +71,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = {
     setBlogPosts,
-    createBlogPost
+    createBlogPost,
+    editBlogPost
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(BlogContainer);
-
-// function withBlogData(WrappedComponent, data) {
-//     return <WrappedComponent data={data} />
-// }
