@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setBlogPosts, createBlogPost, editBlogPost } from '../../redux/blogReducer';
+import { setBlogPosts, createBlogPost, editBlogPost, deleteBlogPost } from '../../redux/blogReducer';
 import BlogPosts from '../BlogPosts/BlogPosts';
 import BlogForm from '../BlogForm/BlogForm';
 import './blogcontainer.scss';
@@ -72,7 +72,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     setBlogPosts,
     createBlogPost,
-    editBlogPost
+    editBlogPost,
+    deleteBlogPost
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(BlogContainer);

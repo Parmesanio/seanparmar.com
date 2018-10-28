@@ -24,7 +24,7 @@ app.get('/admin/blog/posts', bC.get_posts)
 // app.get('/admin/blog/posts/:id', )
 app.post('/admin/blog/posts', bC.create_post)
 app.put('/admin/blog/posts/:id', bC.edit_post)
-// app.delete('/admin/blog/posts/:id', )
+app.delete('/admin/blog/posts/:id', bC.delete_post)
 
 // Nodemailer Endpoint
 app.post('/send', nC.send);

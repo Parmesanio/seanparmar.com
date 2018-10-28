@@ -7,7 +7,9 @@ import BlogPost from './components/BlogPost/BlogPost';
 export default (
     <Switch>
         <Route path="/blog/posts/create" component={BlogContainer} />
-        <Route path="/blog/posts/:id/edit" component={BlogContainer} />
+        <Route path="/blog/posts/:id/edit" render={(props) => {
+            return <BlogContainer {...props} />
+        }} />
         <Route path="/blog/posts/:id" component={BlogContainer} />
         <Route path="/blog/posts" component={BlogContainer} />
         {/* <Route path="/resume" component={Resume} /> */}

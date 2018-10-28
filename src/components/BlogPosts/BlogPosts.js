@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import BlogPost from '../BlogPost/BlogPost';
 
 const BlogPosts = (props) => {
-    console.log(props.data);
-    let { blogPosts, match } = props.data;
+    console.log("BLOG POSTS",props.data);
+    let { blogPosts, match, history, deleteBlogPost } = props.data;
     let mappedPosts = blogPosts && blogPosts.map(post => {
         let { post_imgurl, title, author, body, to_char } = post
         return <div key={post.id}>
@@ -24,7 +24,7 @@ const BlogPosts = (props) => {
     return ( 
         <section className="blog-posts">
             {match.params.id ? 
-            <BlogPost {...post} /> :
+            <BlogPost {...post} history={history} deleteBlogPost={deleteBlogPost} /> :
             blogPosts &&  mappedPosts}
         </section>
      );

@@ -7,7 +7,8 @@ const initialState = {
 
 const SET_BLOG_POSTS        = "SET_BLOG_POSTS",
       CREATE_BLOG_POST      = "CREATE_BLOG_POST",
-      EDIT_BLOG_POST        = "EDIT_BLOG_POST";
+      EDIT_BLOG_POST        = "EDIT_BLOG_POST",
+      DELETE_BLOG_POST      = "DELETE_BLOG_POST";
 
 //Reducer Function
 export default function blogReducer(state = initialState, action) {
@@ -17,6 +18,8 @@ export default function blogReducer(state = initialState, action) {
         case `${CREATE_BLOG_POST}_FULFILLED`:
             return {...state}
         case `${EDIT_BLOG_POST}_FULFILLED`:
+            return {...state, blogPosts: action.payload}
+        case `${DELETE_BLOG_POST}_FULFILLED`:
             return {...state, blogPosts: action.payload}
         default:
             return {...state}
@@ -49,5 +52,16 @@ export function editBlogPost(post_id, postTitle, postURL, postBody, history) {
             history.push('/blog/posts');
             return res.data;
         }).catch(err => console.log('Err in createBlogPost', err))
+    }
+}
+export function deleteBlogPost(id, history) {
+    console.log(id);
+    return {
+        type: DELETE_BLOG_POST,
+        payload: axios.delete(`/admin/blog/posts/${id}`).then(res => {
+            console.log(res.data);
+            history.push('/blog/posts');
+            return res.data;
+        })
     }
 }
