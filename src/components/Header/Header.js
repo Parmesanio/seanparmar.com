@@ -23,7 +23,7 @@ class Header extends Component{
                 <Link to="/">Home</Link>
                 <a href="#">Portfolio</a>
                 <a href="#">Contact</a>
-                <a href="#" target="_blank" rel="noopener noreferrer">Blog</a>
+                <Link to="/blog/posts">Blog</Link>
                 <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
             </nav>
             <button className="menu" onClick={this.handleToggle}>{isToggled ? `x` : '☰'}</button>

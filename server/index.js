@@ -22,7 +22,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 // Blog Endpoints
 app.get('/admin/blog/posts', bC.get_posts)
 // app.get('/admin/blog/posts/:id', )
-// app.post('/admin/blog/posts', )
+app.post('/admin/blog/posts', bC.create_post)
 // app.put('/admin/blog/posts/:id', )
 // app.delete('/admin/blog/posts/:id', )
 

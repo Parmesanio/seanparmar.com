@@ -5,13 +5,16 @@ const initialState = {
 
 //Action Types
 
-const SET_BLOG_POSTS        = "SET_BLOG_POSTS";
+const SET_BLOG_POSTS        = "SET_BLOG_POSTS",
+      CREATE_BLOG_POST      = "CREATE_BLOG_POST";
 
 //Reducer Function
 export default function blogReducer(state = initialState, action) {
     switch(action.type) {
         case `${SET_BLOG_POSTS}_FULFILLED`:
             return {...state, blogPosts: action.payload};
+        case `${CREATE_BLOG_POST}_FULFILLED`:
+            return {...state}
         default:
             return {...state}
     }
@@ -23,4 +26,16 @@ export function setBlogPosts() {
         type: SET_BLOG_POSTS,
         payload: axios.get('/admin/blog/posts').then(res => res.data).catch(err => console.log('Err in SET_BLOG_POSTS', err))
     }
+}
+export function createBlogPost(admin_id, admin_name, postTitle, postURL, postBody, history) {
+    console.log(admin_id, admin_name, postTitle, postURL, postBody, history);
+    return {
+        type: CREATE_BLOG_POST,
+        payload: axios.post('/admin/blog/posts', {admin_id, admin_name, postTitle, postURL, postBody}).then(res => {
+            history.push('/blog/posts');
+            return res.data;
+        }).catch(err => console.log('Err in createBlogPost', err))
+    }
+    
+
 }

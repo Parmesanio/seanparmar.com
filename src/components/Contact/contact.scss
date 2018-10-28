@@ -1,44 +1,44 @@
 @import '../../index.scss';
 @media only screen and (min-width: 0px) {
     .contact {
-        form {
-            background: $primary-background-color-light;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 10px 0;
-            input {
-                display: block;
-                color: $primary-color;
-                margin: 1em auto;
-                outline-color: $primary-color;
-                padding: 12px 20px;
-                width: 70%;
-                &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                    color: $primary-color;
-                    opacity: 1; /* Firefox */
-                }
+        // form {
+        //     background: $primary-background-color-light;
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: space-evenly;
+        //     align-items: center;
+        //     padding: 10px 0;
+        //     input {
+        //         display: block;
+        //         color: $primary-color;
+        //         margin: 1em auto;
+        //         outline-color: $primary-color;
+        //         padding: 12px 20px;
+        //         width: 70%;
+        //         &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        //             color: $primary-color;
+        //             opacity: 1; /* Firefox */
+        //         }
                 
-                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                    color: $primary-color;
-                }
+        //         &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        //             color: $primary-color;
+        //         }
                 
-                &::-ms-input-placeholder { /* Microsoft Edge */
-                    color: $primary-color;
-                }
-            }
-            textarea {
-                @extend input;
-                min-height: 30vh;
-            }
-            button {
-                @extend input;
-                background: $primary-color;
-                border: none;
-                border-radius: 3px;
-                color: #fff
-            }
-        }
+        //         &::-ms-input-placeholder { /* Microsoft Edge */
+        //             color: $primary-color;
+        //         }
+        //     }
+        //     textarea {
+        //         @extend input;
+        //         min-height: 30vh;
+        //     }
+        //     button {
+        //         @extend input;
+        //         background: $primary-color;
+        //         border: none;
+        //         border-radius: 3px;
+        //         color: #fff
+        //     }
+        // }
     }
 }
