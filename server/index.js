@@ -5,11 +5,13 @@ const express       = require('express'),
       axios         = require('axios'),
       session       = require('express-session'),
       cloudinary    = require('cloudinary'),
+      middleware    = require('./middleware'),
       nC            = require('./controllers/nodemailer'),
       bC            = require('./controllers/blogController'),
       aC            = require('./controllers/authController'),
       app = express();
 
+// Middleware
 app.use(bodyParser.json());
 app.use(session({
       secret: process.env.SESSION_SECRET,
@@ -28,7 +30,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 // Auth0 Endpoint
 app.get(`/auth/callback`, aC.auth0);
-  //GET SESSION
+// GET SESSION
 app.get('/api/admin-data', (req, res) => {
       res.json(req.session.admin);
 });
@@ -36,15 +38,15 @@ app.get('/api/admin-data', (req, res) => {
 // Blog Endpoints
 app.get('/admin/blog/posts', bC.get_posts)
 // app.get('/admin/blog/posts/:id', )
-app.post('/admin/blog/posts', bC.create_post)
-app.put('/admin/blog/posts/:id', bC.edit_post)
-app.delete('/admin/blog/posts/:id', bC.delete_post)
+app.post('/admin/blog/posts', middleware.authChecker, bC.create_post)
+app.put('/admin/blog/posts/:id', middleware.authChecker, bC.edit_post)
+app.delete('/admin/blog/posts/:id', middleware.authChecker, bC.delete_post)
 
 // Nodemailer Endpoint
 app.post('/send', nC.send);
 
 // Cloudinary Endpoint https://www.joshborup.com/blog
-app.get('/api/upload', (req, res) => {
+app.get('/api/upload', middleware.authChecker, (req, res) => {
       const timestamp = Math.round((new Date()).getTime() / 1000);
       const api_secret  = process.env.CLOUDINARY_API_SECRET;
       const signature = cloudinary.utils.api_sign_request({ timestamp: timestamp }, api_secret);
