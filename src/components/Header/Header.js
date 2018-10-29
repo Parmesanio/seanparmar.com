@@ -7,6 +7,9 @@ class Header extends Component{
     state = {
         isToggled: false
     }
+    componentDidMount() {
+        //getadmin
+    }
     handleToggle = () => {
         this.setState({
             isToggled: !this.state.isToggled

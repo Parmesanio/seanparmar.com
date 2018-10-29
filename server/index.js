@@ -2,13 +2,22 @@ require('dotenv').config();
 const express       = require('express'),
       bodyParser    = require('body-parser'),
       massive       = require('massive'),
+      axios         = require('axios'),
+      session       = require('express-session'),
       nC            = require('./controllers/nodemailer'),
       bC            = require('./controllers/blogController'),
+      aC            = require('./controllers/authController'),
       app = express();
 
 app.use(bodyParser.json());
-
-
+app.use(session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7
+      }
+}))
 massive(process.env.CONNECTION_STRING).then(db => {
       app.set('db', db);
       console.log('DB Set');
@@ -17,7 +26,11 @@ massive(process.env.CONNECTION_STRING).then(db => {
 // -------------- ENDPOINTS 
 
 // Auth0 Endpoint
-// app.get('/auth/callback', )
+app.get(`/auth/callback`, aC.auth0);
+  //GET SESSION
+app.get('/api/admin-data', (req, res) => {
+      res.json(req.session.admin);
+});
 
 // Blog Endpoints
 app.get('/admin/blog/posts', bC.get_posts)
