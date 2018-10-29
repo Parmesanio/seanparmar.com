@@ -9,15 +9,15 @@ class BlogContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            postTitle: null,
-            postURL: null,
-            postBody: null
+            postTitle: '',
+            postURL: '',
+            postBody: ''
          }
     }
     componentDidMount() {
         this.props.setBlogPosts();
         setTimeout(() => {
-            let post = this.props.match.params.id && this.props.blogPosts.find(post => {
+            let post = (this.props.match.params.id && this.props.blogPosts) && this.props.blogPosts.find(post => {
                 return post.id == this.props.match.params.id
             });
            post &&  this.setState({
@@ -25,11 +25,17 @@ class BlogContainer extends Component {
                 postURL: post.post_imgurl,
                 postBody: post.body
             })
-        }, 1000)
+            console.log(post);
+        }, 500)
     }
     handleInputChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+    setPhotoURL = (url) => {
+        this.setState({
+            postURL: url
         })
     }
      withBlogData = (WrappedComponent, data) => {
@@ -39,7 +45,8 @@ class BlogContainer extends Component {
                         editBlogPost={data.editBlogPost} 
                         history={data.history} 
                         match={data.match}
-                        handleInputChange={this.handleInputChange} 
+                        handleInputChange={this.handleInputChange}
+                        setPhotoURL={this.setPhotoURL} 
                         blogPosts={data.blogPosts}
                         postTitle={this.state.postTitle} 
                         postURL={this.state.postURL} 
@@ -54,12 +61,12 @@ class BlogContainer extends Component {
         let blogPosts = this.withBlogData(BlogPosts, {...this.props});
         let blogForm = this.withBlogData(BlogForm, {...this.props})
         return ( 
-            <div className="blog-container">
+            <section className="blog-container">
                 {this.props.match.path == '/blog/posts' && blogPosts}
                 {this.props.match.path == '/blog/posts/:id' && blogPosts}
                 {this.props.match.path == '/blog/posts/create' && blogForm}
                 {this.props.match.path == '/blog/posts/:id/edit' && blogForm}
-            </div>
+            </section>
          );
     }
 }

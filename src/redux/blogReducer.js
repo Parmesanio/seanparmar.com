@@ -16,7 +16,7 @@ export default function blogReducer(state = initialState, action) {
         case `${SET_BLOG_POSTS}_FULFILLED`:
             return {...state, blogPosts: action.payload};
         case `${CREATE_BLOG_POST}_FULFILLED`:
-            return {...state}
+            return {...state, blogPosts: action.payload}
         case `${EDIT_BLOG_POST}_FULFILLED`:
             return {...state, blogPosts: action.payload}
         case `${DELETE_BLOG_POST}_FULFILLED`:

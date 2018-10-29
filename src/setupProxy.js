@@ -4,6 +4,7 @@ module.exports = function(app) {
     app.use(proxy([
         '/admin',
         '/auth',
-        '/send'
+        '/send',
+        '/api'
     ],{ target: 'http://localhost:4000/' }));
 }

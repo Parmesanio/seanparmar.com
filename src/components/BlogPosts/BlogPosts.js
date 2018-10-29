@@ -15,18 +15,14 @@ const BlogPosts = (props) => {
             </div>
     })
     let post = blogPosts && blogPosts.find(post => {
-        console.log(post);
-        
         return post.id == match.params.id
     });
-    console.log(post);
-    
     return ( 
-        <section className="blog-posts">
+        <div className="blog-posts">
             {match.params.id ? 
             <BlogPost {...post} history={history} deleteBlogPost={deleteBlogPost} /> :
             blogPosts &&  mappedPosts}
-        </section>
+        </div>
      );
 }
  

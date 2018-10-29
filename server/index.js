@@ -4,6 +4,7 @@ const express       = require('express'),
       massive       = require('massive'),
       axios         = require('axios'),
       session       = require('express-session'),
+      cloudinary    = require('cloudinary'),
       nC            = require('./controllers/nodemailer'),
       bC            = require('./controllers/blogController'),
       aC            = require('./controllers/authController'),
@@ -41,6 +42,18 @@ app.delete('/admin/blog/posts/:id', bC.delete_post)
 
 // Nodemailer Endpoint
 app.post('/send', nC.send);
+
+// Cloudinary Endpoint https://www.joshborup.com/blog
+app.get('/api/upload', (req, res) => {
+      const timestamp = Math.round((new Date()).getTime() / 1000);
+      const api_secret  = process.env.CLOUDINARY_API_SECRET;
+      const signature = cloudinary.utils.api_sign_request({ timestamp: timestamp }, api_secret);
+      const payload = {
+          signature: signature,
+          timestamp: timestamp
+      };
+      res.json(payload);
+  })
 
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Personal Website running on port ${PORT}`));

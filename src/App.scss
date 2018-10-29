@@ -6,6 +6,9 @@
     min-height: 60vh;
     padding-top: $padding-top;
   }
+  img {
+    width: 100%;
+  }
   form {
     background: $primary-background-color-light;
     display: flex;

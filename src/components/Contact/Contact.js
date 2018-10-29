@@ -26,14 +26,14 @@ const Contact = () => {
         })
     }
     return ( 
-        <section className="contact">
+        <div className="contact">
             <form id="contact-form" onSubmit={(event) => event.preventDefault()}>
                 <input id="name" type="text" placeholder="Full Name" required />
                 <input id="email" type="email" placeholder="example@email.com" required />
                 <textarea id="message" placeholder="Message" required></textarea>
                 <button onClick={(e) => handleSubmit(e)}>Contact Sean</button>
             </form>
-        </section> 
+        </div> 
     );
 }
  

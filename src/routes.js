@@ -9,9 +9,8 @@ export default (
     <Switch>
         <Route path="/login" component={Login} />
         <Route path="/blog/posts/create" component={BlogContainer} />
-        <Route path="/blog/posts/:id/edit" render={(props) => {
-            return <BlogContainer {...props} />
-        }} />
+        {/* Add key to render component when routing multiple paths */}
+        <Route key={'EditForm'} path="/blog/posts/:id/edit" component={BlogContainer} />
         <Route path="/blog/posts/:id" component={BlogContainer} />
         <Route path="/blog/posts" component={BlogContainer} />
         {/* <Route path="/resume" component={Resume} /> */}
