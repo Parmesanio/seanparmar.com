@@ -21,6 +21,7 @@ app.use(session({
             maxAge: 1000 * 60 * 60 * 24 * 7
       }
 }))
+app.use( express.static( `${__dirname}/../build` ) )
 massive(process.env.CONNECTION_STRING).then(db => {
       app.set('db', db);
       console.log('DB Set');
@@ -60,6 +61,11 @@ app.get('/api/upload', middleware.authChecker, (req, res) => {
           timestamp: timestamp
       };
       res.json(payload);
+  })
+
+  const path = require('path')
+  app.get('*', (req, res)=>{
+   res.sendFile(path.join(__dirname, '../build/index.html'));
   })
 
 const PORT = 4000;
