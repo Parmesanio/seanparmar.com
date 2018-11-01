@@ -34,6 +34,11 @@ app.get(`/auth/callback`, aC.auth0);
 app.get('/api/admin-data', (req, res) => {
       res.json(req.session.admin);
 });
+//DESTROY SESSION
+app.post('/api/admin-data', (req, res) => {
+      req.session.destroy();
+      res.send();
+  })
 
 // Blog Endpoints
 app.get('/admin/blog/posts', bC.get_posts)

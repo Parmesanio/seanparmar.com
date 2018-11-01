@@ -72,8 +72,10 @@ class BlogContainer extends Component {
 }
 const mapStateToProps = state => {
     let { blogPosts } = state.blog;
+    let { user } = state.user;
     return {
-        blogPosts
+        blogPosts,
+        user
     }
 }
 const mapDispatchToProps = {

@@ -24,7 +24,7 @@ module.exports = {
           const auth0Id = response.data.sub;
           const db = req.app.get('db');
           return db.get_admin_by_auth0_id(auth0Id).then(admin => {
-              if (admin[0].auth0id == auth0Id) {
+              if (admin[0].auth0_id == auth0Id) {
                   let { name, picture, email } = response.data
                         if (admin.length) {
                         req.session.admin = admin;
@@ -40,7 +40,7 @@ module.exports = {
                     }
                 } else {
                     // isLoggedIn = false;
-                    res.redirect('/admin/login');  
+                    res.redirect('/login');  
                 }
                 }).catch(error => {
                     console.log('error in db.get_user_by_auth0_id', error);
