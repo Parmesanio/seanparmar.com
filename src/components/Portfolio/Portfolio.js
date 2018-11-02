@@ -1,8 +1,28 @@
 import React from 'react';
 import './portfolio.scss';
+import { connect } from 'react-redux';
+import Experience from '../Experience/Experience';
 
-const Portfolio = () => {
-    return ( <section className="portfolio">Portfolio</section> );
+const Portfolio = (props) => {
+    let mappedExperience = props.experience && props.experience.map(exp => {
+        return <Experience {...exp} />
+    })
+    return ( 
+        <section className="portfolio">
+            Portfolio
+            {props.experience && mappedExperience}
+        </section>
+     );
 }
- 
-export default Portfolio;
+
+const mapStateToProps = state => {
+    console.log(state);
+    let { experiences } = state.experience;
+    return {
+        experiences
+    }
+}
+ const mapDispatchToProps = {
+
+ }
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);

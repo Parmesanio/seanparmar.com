@@ -1,4 +1,10 @@
 @import '../../index.scss';
+// MIXINS
+@mixin aTag {
+    color: $primary-color;
+    font-size: 2vh;
+    margin-left: 0.5em;
+}
 @media only screen and (min-width: 0px) {
     header {
         background: $primary-background-color;
@@ -6,7 +12,7 @@
         justify-content: space-between;
         align-items: center;
         height: 70px;
-        padding: 3vh;
+        padding: 2vh;
         position: fixed;
         right: 0;
         left: 0;
@@ -14,7 +20,8 @@
         z-index: 9999;
         h1 {
             color: $primary-color;
-            font-size: 2.5vh;
+            font-size: 3.5vh;
+            font-weight: 700;
         }
         nav {
             background: $primary-background-color;
@@ -32,9 +39,8 @@
             transition: all 0.35s ease-in-out;
             z-index: -1;
             a {
-                color: $primary-color;
-                font-size: 2vh;
-                margin: 0.5em;
+                @include aTag;
+                margin: none;
                 &:after {
                     background: $primary-color;
                     content: '';
@@ -55,12 +61,11 @@
         }
         .menu {
             color: $primary-color;
-            font-size: 3vh;
+            font-size: 5vh;
+            width: 42px;
         }
-        a {
-            color: $primary-color;
-            font-size: 2vh;
-            margin: 0.5em;
+        .socials a {
+            @include aTag;
         }
         // End of Header
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUser, logout } from '../../redux/userReducer';
+import { setExp } from '../../redux/expReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './header.scss';
 
@@ -11,6 +12,7 @@ class Header extends Component{
     }
     componentDidMount() {
        this.props.setUser();
+       this.props.setExp();
     }
     handleToggle = () => {
         this.setState({
@@ -23,6 +25,12 @@ class Header extends Component{
         let { user, logout } = this.props;
     return ( 
         <header>
+            <div className="socials">
+                <a href="https://www.linkedin.com/in/sean-parmar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'linkedin-in']} /></a>
+                <a href="https://github.com/Parmesanio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'github']} /></a>
+                <a href="https://codepen.io/Parmesanio/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'codepen']} /></a>
+                <a href="https://itunes.apple.com/us/developer/sean-parmar/id1356437548?mt=8" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'app-store']} /></a>
+            </div>
             <Link to="/"><h1>Sean Parmar</h1></Link>
             <nav className={`${isToggled ? 'show' : ''}`}>
                 <Link to="/">Home</Link>
@@ -37,12 +45,6 @@ class Header extends Component{
                 }
             </nav>
             <button className="menu" onClick={this.handleToggle}>{isToggled ? `x` : '☰'}</button>
-            <div className="socials">
-                <a href="https://www.linkedin.com/in/sean-parmar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'linkedin-in']} /></a>
-                <a href="https://github.com/Parmesanio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'github']} /></a>
-                <a href="https://codepen.io/Parmesanio/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'codepen']} /></a>
-                <a href="https://itunes.apple.com/us/developer/sean-parmar/id1356437548?mt=8" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'app-store']} /></a>
-            </div>
         </header>
      );
     }
@@ -56,6 +58,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = {
     setUser,
-    logout
+    logout,
+    setExp
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

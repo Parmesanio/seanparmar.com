@@ -54,3 +54,11 @@ CREATE SEQUENCE blog_posts_id_seq OWNED BY blog_posts.id;
 select * from blog_posts
 -- Selects Dates with mm/dd/yy format
 SELECT TO_CHAR(blog_posts.posting_date :: DATE, 'Mon dd, yyyy') from blog_posts;
+
+-- EXPERIENCES SCHEMA
+create table experiences(
+id bigint primary key default make_random_id(),
+exp_imgurl text,
+description text,
+tech text
+);

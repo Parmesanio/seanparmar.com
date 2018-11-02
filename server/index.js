@@ -9,6 +9,7 @@ const express       = require('express'),
       nC            = require('./controllers/nodemailer'),
       bC            = require('./controllers/blogController'),
       aC            = require('./controllers/authController'),
+      eC            = require('./controllers/expController'),
       app = express();
 
 // Middleware
@@ -43,10 +44,12 @@ app.post('/api/admin-data', (req, res) => {
 
 // Blog Endpoints
 app.get('/admin/blog/posts', bC.get_posts)
-// app.get('/admin/blog/posts/:id', )
 app.post('/admin/blog/posts', middleware.authChecker, bC.create_post)
 app.put('/admin/blog/posts/:id', middleware.authChecker, bC.edit_post)
 app.delete('/admin/blog/posts/:id', middleware.authChecker, bC.delete_post)
+
+// Experience Endpoints
+app.get('/admin/experiences', eC.get);
 
 // Nodemailer Endpoint
 app.post('/send', nC.send);
@@ -67,6 +70,6 @@ app.get('/api/upload', middleware.authChecker, (req, res) => {
   app.get('*', (req, res)=>{
    res.sendFile(path.join(__dirname, '../build/index.html'));
   })
-
+// -------------- ENDPOINTS END
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Personal Website running on port ${PORT}`));

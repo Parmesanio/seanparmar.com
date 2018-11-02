@@ -32,7 +32,7 @@ module.exports = {
                         } else {
                         return db.create_admin([auth0Id, name, email, picture]).then(newUser => {
                             req.session.admin = newUser;
-                            res.redirect('/');
+                            res.redirect('/blog/posts');
                         }).catch(error => {
                             console.log('error in db.create_user', error);
                             res.status(500).send('Unexpected error');

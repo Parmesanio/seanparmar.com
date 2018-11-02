@@ -9,12 +9,12 @@ const BlogPost = (props) => {
     return ( 
         <div className="blog-post">
             <img src={post_imgurl} alt={title} />
+            <div className="blog-body">
             {user && <>
             <Link to={`/blog/posts/${id}/edit`}>Edit Post</Link>
             <button onClick={() => deleteBlogPost(id, history)}>Delete Post</button>
             </>
             }
-            <div className="blog-body">
                 <h1>{title}</h1>
                 <h3>Posted by <a href="https://www.linkedin.com/in/sean-parmar/" target="_blank" rel="noopener noreferrer">{author}</a> on {to_char}</h3> 
                 <p>{body}</p>

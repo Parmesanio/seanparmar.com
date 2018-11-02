@@ -1,6 +1,70 @@
 @import '../../index.scss';
 @media only screen and (min-width: 0px) {
-    .showcase {
-        padding-top: $padding-top;
+    /*----- Split Screen Begin -----*/
+  #wrapper {
+    min-height: 55vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .layer {
+    min-height: 55vh;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    .content-wrap {
+        min-height: 55vh;
+        position: absolute;
+        width: 100vw;
+      }
+      .content-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+      }
+      h1 {
+        color: $primary-color;
+          font-size: 1.5em;
     }
+  }
+  .bottom {
+    z-index: 1;
+    h1 {
+        color: $primary-background-color;
+    }
+  }
+  .top {
+    background: $primary-background-color;
+    color: $primary-color;
+    width: 50vw;
+    z-index: 2;
+  }
+  .handle {
+    background: $primary-color;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 5px;
+    z-index: 3;
+  }
+  .skewed .handle {
+    height: 200%;
+    top: 60%;
+    transform: rotate(30deg) translateY(-50%);
+    transform-origin: top;
+  }
+  .skewed .top {
+    margin-left: -1000px;
+    transform: skew(-30deg);
+    width: calc(50vw + 1000px)
+  }
+  .skewed .top .content-wrap {
+    margin-left: 1000px;
+    transform: skew(30deg);
+  }
+/*----- Split Screen End -----*/
 }
