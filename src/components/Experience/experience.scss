@@ -1,7 +1,39 @@
-.experience {
-    p {
-        font-size: 0.8em;
-        margin: 0.5em auto;
-        text-align: left;
+@import '../../index.scss';
+@media only screen and (min-width: 0px) {
+    .experience {
+        margin: 1em auto;
+        width: 90%;
+        p {
+            font-size: 0.8em;
+            margin: 0.5em auto;
+            text-align: left;
+        }
+        .experience-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 1em;
+            button {
+                background: $primary-color;
+                border: none;
+                border-radius: 3px;
+                color: #fff;
+                padding: 12px;
+                width: 45%;
+                transition: 0.35s all;
+                &:hover {
+                    box-shadow: 0px 0px 5px 5px #444;
+                }
+            }
+            .blogButton {
+                @extend button;
+                background: $primary-background-color;
+            }
+        }
     }
+}
+@media only screen and (min-width: 768px) {
+    .experience {
+        width: 40%;
+        }
 }

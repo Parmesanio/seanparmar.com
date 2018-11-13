@@ -68,3 +68,15 @@
   }
 /*----- Split Screen End -----*/
 }
+@media only screen and (min-width: 768px) {
+    .skewed {
+        .handle {
+            top: 56%;
+        }
+    }
+    .layer {
+        h1 {
+            font-size: 2em;
+        }
+    }
+}

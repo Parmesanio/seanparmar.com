@@ -42,17 +42,6 @@
                 @include aTag;
                 display: none;
                 margin: none;
-                &:after {
-                    background: $primary-color;
-                    content: '';
-                    display: block;
-                    width: 0;
-                    height: 2px;
-                    transition: all 0.35s;
-                }
-                &:hover:after {
-                    width: 100%;
-                }
             }
             // End of Nav
         }
@@ -72,5 +61,46 @@
             @include aTag;
         }
         // End of Header
+    }
+}
+@media only screen and (min-width: 768px) {
+    header {
+        .menu {
+            background: $primary-background-color;
+            border: none;
+            outline: none;
+            width: 1.5em;
+        }
+    }
+}
+@media only screen and (min-width: 992px) {
+    header {
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height: inherit;
+            opacity: 1;
+            position: static;
+            width: 4%;
+            a {
+                display: inherit;
+                &::after {
+                    background: $primary-color;
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 5px;
+                    transition: all 0.35s;
+                }
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+        .menu {
+            display: none;
+        }
     }
 }

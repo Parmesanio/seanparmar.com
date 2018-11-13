@@ -12,7 +12,7 @@ const Portfolio = (props) => {
     // Link experiences to blog post by title
     return ( 
         <section className="portfolio">
-            Experiences
+            <h1>Experiences</h1>
             {user && <Link to="/experiences/create">Create Experience</Link>}
             {experiences && mappedExperience}
             <Experience />

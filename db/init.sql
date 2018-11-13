@@ -62,3 +62,4 @@ exp_imgurl text,
 description text,
 tech text
 );
+CREATE SEQUENCE experiences_id_seq OWNED BY experiences.id;

@@ -28,6 +28,7 @@ const Contact = () => {
     return ( 
         <div className="contact">
             <form id="contact-form" onSubmit={(event) => event.preventDefault()}>
+                <h1>Inqueries</h1>
                 <input id="name" type="text" placeholder="Full Name" required />
                 <input id="email" type="email" placeholder="example@email.com" required />
                 <textarea id="message" placeholder="Message" required></textarea>

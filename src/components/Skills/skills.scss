@@ -1,19 +1,32 @@
 @import '../../index.scss';
-.skills {
-    .skill-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        .skill {
-            min-height: 100px;
-            width: 33%;
-            svg {
-                color: $primary-background-color;
-                margin: 1em auto;
-                width: 30%;
-                height: 1%;
+@media only screen and (min-width: 0px) {
+    .skills {
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            .skill {
+                min-height: 100px;
+                width: 33%;
+                svg {
+                    color: $primary-background-color;
+                    margin: 1em auto;
+                    width: 30%;
+                    height: 1%;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .skills {
+        .skill-container {
+            .skill {
+                svg {
+                    width: 25%;
+                }
             }
         }
     }

@@ -1,28 +1,48 @@
 @import '../../index.scss';
-.blog-post {
-    min-height: 100vh;
-    text-align: left;
-    h1 {
-        color: $primary-color;
-        font-size: 2em;
+@media only screen and (min-width: 0px) {
+    #blog-post {
+        min-height: 100vh;
+        text-align: left;
+        h1 {
+            color: $primary-color;
+            font-size: 2em;
+        }
+        h3, span {
+            color: #aaa;
+            font-size: 0.8em;
+            margin: 0.5em auto;
+        }
+        img {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            max-height: 50vh;
+        }
+        .blog-body {
+            background: #fff;
+            border-radius: 3px;
+            margin-top: calc(100vh - 200px);
+            padding: 0.5em;
+            width: 95%;
+        }
     }
-    h3, span {
-        color: #aaa;
-        font-size: 0.8em;
-        margin: 0.5em auto;
+}
+@media only screen and (min-width: 768px) {
+    .blog-posts {
+        #blog-post {
+            width: 60%;
+            display: flex;
+            max-height: 50vh;
+            flex-direction: column;
+            img {
+                position: inherit;
+            }
+            .blog-body {
+                margin-top: 1em;
+                width: 100%;
+            }
+
     }
-    img {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 50vh;
-    }
-    .blog-body {
-        background: #fff;
-        border-radius: 3px;
-        margin-top: calc(100vh - 200px);
-        padding: 0.5em;
-        width: 95%;
     }
 }

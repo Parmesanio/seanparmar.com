@@ -27,7 +27,7 @@ const BlogForm = (props) => {
         {/* Post Author Name from admin in session */}
            <form onSubmit={(event) => event.preventDefault()}>
                 <h1>{match.params.id ? "Edit Post" : "New Post"}</h1>
-                <input name="postTitle" value={postTitle} placeholder="Post Title" onChange={(event) => props.handleInputChange(event)} />
+                <input name="postTitle" value={postTitle} placeholder="Post Title" onChange={(event) => props.handleInputChange(event)} autoFocus="true" />
                 <Dropzone
                     multiple={false}
                     accept='image/*'

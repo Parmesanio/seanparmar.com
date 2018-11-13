@@ -1,8 +1,23 @@
-.blog-posts {
-    div {
-        margin: 1em auto;
-        p {
-            text-align: left;
+@media only screen and (min-width: 0px) {
+    .blog-posts {
+        min-height: 100vh;
+        div {
+            margin: 1em auto;
+            width: 90%;
+            p {
+                text-align: left;
+            }
+        }
+        .image-container {
+            height: 300px;
+            width: 100%;
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .blog-posts {
+        div {
+            width: 40%;
         }
     }
 }
