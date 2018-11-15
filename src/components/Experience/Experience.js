@@ -1,16 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './experience.scss';
 
 const Experience = (props) => {
+    console.log(props);
+    let { title, tech, body, post_imgurl, id } = props;
+    
     return ( 
         <div className="experience">
-            <img src="https://res.cloudinary.com/parmesanio/image/upload/v1541173906/smartmockups_jo06m849-min_se8eyt.png" />
-            <h1>The Talkin' Monkeys Project, Inc.</h1>
-            <p>Website prototype with the goal of promoting volunteering and donations.</p>
-            <p>Tech used: ReactJS, Redux, JavaScript, Node.js, PostgreSQL, Auth0, OpenWeatherMap API, Google Maps, Stripe,  Cloudinary, RESTful API, Sass, Progressive Web App</p>
+            <img src={post_imgurl} />
+            <h1>{title}</h1>
+            <p>{body.substring(0, 100)}</p>
+            <p>Tech used: {tech}</p>
             <div className="experience-buttons">
-                <button className="blogButton">Blog</button>
-                <button>Github</button>
+                <Link to={`/blog/posts/${id}`}><button className="blogButton">Blog</button></Link>
+                <a href="https://github.com/Parmesanio/personalproject" target="_blank" rel="noopener noreferrer" ><button>Github</button></a>
             </div>
         </div>
      );

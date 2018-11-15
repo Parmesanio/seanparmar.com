@@ -7,7 +7,7 @@ import Experience from '../Experience/Experience';
 const Portfolio = (props) => {
     let { experiences, user } = props;
     let mappedExperience = experiences && experiences.map(exp => {
-        return <Experience {...exp} />
+        return <Experience key={exp.id} {...exp} />
     })
     // Link experiences to blog post by title
     return ( 
@@ -15,7 +15,6 @@ const Portfolio = (props) => {
             <h1>Experiences</h1>
             {user && <Link to="/experiences/create">Create Experience</Link>}
             {experiences && mappedExperience}
-            <Experience />
         </section>
      );
 }

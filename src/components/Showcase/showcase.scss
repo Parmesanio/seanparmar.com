@@ -69,14 +69,21 @@
 /*----- Split Screen End -----*/
 }
 @media only screen and (min-width: 768px) {
+    #wrapper {
+        min-height: 65vh;
+    }
     .skewed {
         .handle {
             top: 56%;
         }
     }
     .layer {
+        min-height: 65vh;
         h1 {
             font-size: 2em;
+        }
+        .content-wrap {
+            min-height: 65vh;
         }
     }
 }

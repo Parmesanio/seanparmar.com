@@ -34,10 +34,8 @@ class Header extends Component{
             <Link to="/"><h1>Sean Parmar</h1></Link>
             <nav className={`${isToggled ? 'show' : ''}`}>
                 <Link to="/">Home</Link>
-                <a href="#">Portfolio</a>
-                <a href="#">Contact</a>
                 <Link to="/blog/posts">Blog</Link>
-                <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
+                <Link to="/blog/posts">About</Link>
                 {user && <>
                     <Link to="/blog/posts/create">Create Post</Link>
                     <button onClick={() => logout()}>Log out</button>

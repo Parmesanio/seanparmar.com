@@ -13,13 +13,16 @@
             justify-content: space-evenly;
             align-items: center;
             margin-top: 1em;
+            a {
+                width: 45%;
+            }
             button {
                 background: $primary-color;
                 border: none;
                 border-radius: 3px;
                 color: #fff;
                 padding: 12px;
-                width: 45%;
+                width: 100%;
                 transition: 0.35s all;
                 &:hover {
                     box-shadow: 0px 0px 5px 5px #444;
