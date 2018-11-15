@@ -3,7 +3,6 @@ const sinon     = require('sinon'),
       testDB    = require('../../test/init');
 
 // Unit Tests
-
 describe('Unit Tests', () => {
     describe('Get admin data', () => {
         it('Should fetch admin data from the db', () => {
@@ -32,4 +31,30 @@ describe('Unit Tests', () => {
             return AdminData.createAdmin(fakeDB, admin)
         })
     })
+})
+
+// Integration Tests
+describe('Integration Tests', () => {
+    let db;
+    function clearDb() {return db.query('delete from reviews')}
+    beforeAll(() => {
+        return testDB.initDb().then(database => {
+            return db = database
+        })
+    })
+    describe('Get Admin', () => {
+        it('Should get admin data from db', () => {
+            return AdminData.getAdmin(db).then(admin => {
+                expect(admin.length).not.toEqual(0);
+                expect(admin[0]).toMatchObject({
+                    id: expect.any(String),
+                    auth0_id: expect.any(String),
+                    username: expect.any(String),
+                    email: expect.any(String),
+                    photos: expect.any(String),
+                    created_at: expect.any(Date)
+                });
+        })
+    })
+})
 })
