@@ -86,6 +86,7 @@
             width: 4%;
             a {
                 display: inherit;
+                margin-right: 1em;
                 &::after {
                     background: $primary-color;
                     content: '';
