@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import './experience.scss';
 
 const Experience = (props) => {
-    console.log(props);
     let { title, tech, body, post_imgurl, id } = props;
-    
+    console.log(props);
     return ( 
         <div className="experience">
             <img src={post_imgurl} />
             <h1>{title}</h1>
-            <p>{body && body.substring(0, 100)}</p>
+            <p>{body && body.substring(0, 100)}... (<Link to={`/blog/posts/${id}`}>Read more</Link>)</p>
             <p>Tech used: {tech}</p>
             <div className="experience-buttons">
                 <Link to={`/blog/posts/${id}`}><button className="blogButton">Blog</button></Link>

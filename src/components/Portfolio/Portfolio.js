@@ -3,13 +3,14 @@ import './portfolio.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Experience from '../Experience/Experience';
+import { log } from 'handlebars';
 
 const Portfolio = (props) => {
     let { experiences, user } = props;
     let mappedExperience = experiences && experiences.map(exp => {
+        console.log(exp);
         return <Experience key={exp.id} {...exp} />
     })
-    // Link experiences to blog post by title
     return ( 
         <section className="portfolio">
             <h1>Experiences</h1>
