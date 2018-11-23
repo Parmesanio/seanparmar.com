@@ -10,7 +10,7 @@ const Experience = (props) => {
         <div className="experience">
             <img src={post_imgurl} />
             <h1>{title}</h1>
-            <p>{body.substring(0, 100)}</p>
+            <p>{body && body.substring(0, 100)}</p>
             <p>Tech used: {tech}</p>
             <div className="experience-buttons">
                 <Link to={`/blog/posts/${id}`}><button className="blogButton">Blog</button></Link>
