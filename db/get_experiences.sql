@@ -1,1 +1,1 @@
-select * from blog_posts join experiences on (blog_posts.title = experiences.title)
+select blog_posts.id, blog_posts.title, blog_posts.post_imgurl, body, tech from blog_posts join experiences on (blog_posts.title = experiences.title);
