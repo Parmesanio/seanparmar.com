@@ -5,7 +5,7 @@
         text-align: left;
         h1 {
             color: $primary-color;
-            font-size: 2em;
+            font-size: 1em;
         }
         h3, span {
             color: #aaa;
@@ -22,7 +22,7 @@
         .blog-body {
             background: #fff;
             border-radius: 3px;
-            margin-top: calc(100vh - 200px);
+            // margin-top: calc(100vh - 200px);
             padding: 0.5em;
             width: 95%;
         }
@@ -35,6 +35,9 @@
             display: flex;
             max-height: 50vh;
             flex-direction: column;
+            h1 {
+                font-size: 2em;
+            }
             img {
                 position: inherit;
             }
