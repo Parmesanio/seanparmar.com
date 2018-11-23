@@ -1,1 +1,1 @@
-select * from experiences join blog_posts on (blog_posts.title = experiences.title)
+select * from blog_posts join experiences on (blog_posts.title = experiences.title)
