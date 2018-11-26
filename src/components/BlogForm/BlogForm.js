@@ -3,19 +3,14 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
 const BlogForm = (props) => {
-    console.log('BLOG FORM ======>', props);
     let { createBlogPost, postTitle, postURL, postBody, history, blogPosts, match, editBlogPost } = props;
     const handleImageUpload = (file) => {
         axios.get('/api/upload').then(response => {
-            console.log(response);
-            
             let formData = new FormData();
             formData.append("signature", response.data.signature)
             formData.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
             formData.append("timestamp", response.data.timestamp)
             formData.append("file", file[0]);
-            console.log(formData);
-            
             axios.post(process.env.REACT_APP_CLOUDINARY_UPLOAD_URL, formData).then(response => {
                 props.setPhotoURL(response.data.secure_url)
             }).catch(err => console.log(err))
@@ -41,7 +36,7 @@ const BlogForm = (props) => {
                 <textarea name="postBody" value={postBody} placeholder="Post Body" onChange={(event) => props.handleInputChange(event)} /> 
                 {match.params.id ? 
                     <button onClick={() => editBlogPost(match.params.id, postTitle, postURL, postBody, history)}>Edit Post</button> :
-                    <button onClick={() => createBlogPost(1326999099, 'Sean Parmar', postTitle, postURL, postBody, history)}>Submit New Post</button>
+                    <button onClick={() => createBlogPost(1241588087, 'Sean Parmar', postTitle, postURL, postBody, history)}>Submit New Post</button>
                 }
            </form>
         </div>

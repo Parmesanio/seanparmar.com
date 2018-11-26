@@ -22,7 +22,6 @@ var transport = {
 module.exports = {
 
     send: (req, res) => {
-        console.log(req.body);
         var name = req.body.name
         var email = req.body.email
         var message = req.body.message

@@ -3,13 +3,14 @@
     #blog-post {
         min-height: 100vh;
         text-align: left;
+        width: 100%;
         h1 {
             color: $primary-color;
-            font-size: 1em;
+            font-size: 10vw;
         }
         h3, span {
             color: #aaa;
-            font-size: 0.8em;
+            font-size: 4vw;
             margin: 0.5em auto;
         }
         img {
@@ -22,9 +23,15 @@
         .blog-body {
             background: #fff;
             border-radius: 3px;
-            // margin-top: calc(100vh - 200px);
             padding: 0.5em;
             width: 95%;
+            p > h1 {
+                font-size: 6vw;
+            }
+            p > * {
+                margin: inherit;
+                padding: inherit;
+            }
         }
     }
 }
@@ -35,11 +42,14 @@
             display: flex;
             max-height: 50vh;
             flex-direction: column;
-            h1 {
-                font-size: 2em;
-            }
             img {
                 position: inherit;
+            }
+            h1 {
+                font-size: 5vw;
+            }
+            h3, span {
+                font-size: 1.5vw;
             }
             .blog-body {
                 margin-top: 1em;

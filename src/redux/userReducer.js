@@ -23,7 +23,6 @@ export function setUser() {
     return {
         type: SET_USER,
         payload: axios.get('/api/admin-data').then(res => {
-            console.log(res.data);
             return res.data
         }).catch(err => console.log('err in set_user', err))
     }

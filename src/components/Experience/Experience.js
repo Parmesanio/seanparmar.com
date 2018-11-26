@@ -4,7 +4,6 @@ import './experience.scss';
 
 const Experience = (props) => {
     let { title, tech, body, post_imgurl, id } = props;
-    console.log(props);
     return ( 
         <div className="experience">
             <img src={post_imgurl} />

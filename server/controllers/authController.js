@@ -1,8 +1,6 @@
 const axios             = require('axios');
 module.exports = {
     auth0: (req, res) => {
-        console.log('/auth/callback fired');
-        
         const payload = {
           client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
           client_secret: process.env.AUTH0_CLIENT_SECRET,
@@ -41,7 +39,6 @@ module.exports = {
                         });
                     }
                 } else {
-                    // isLoggedIn = false;
                     res.redirect('/login');  
                 }
                 }).catch(error => {

@@ -10,8 +10,6 @@ const Contact = () => {
         document.getElementById('contact-form').reset();
     }
     const handleSubmit = (e) => {
-        console.log('fired');
-        
         e.preventDefault();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;

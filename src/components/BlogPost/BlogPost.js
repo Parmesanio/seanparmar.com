@@ -4,12 +4,11 @@ import './blogpost.scss';
 
 const BlogPost = (props) => {
     window.scrollTo(0,0)
-    console.log(props);
     let { post_imgurl, title, author, body, to_char, id, deleteBlogPost, history, user } = props;
     return ( 
         <div id="blog-post">
             <div className="image-container">
-                <img src={post_imgurl} alt={title} />
+                <img src={post_imgurl || 'https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} alt={title} />
             </div>
             <div className="blog-body">
             {user && <>

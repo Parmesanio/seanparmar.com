@@ -16,7 +16,7 @@ export default function blogReducer(state = initialState, action) {
         case `${SET_BLOG_POSTS}_FULFILLED`:
             return {...state, blogPosts: action.payload};
         case `${CREATE_BLOG_POST}_FULFILLED`:
-            return {...state, blogPosts: action.payload}
+            return {...state}
         case `${EDIT_BLOG_POST}_FULFILLED`:
             return {...state, blogPosts: action.payload}
         case `${DELETE_BLOG_POST}_FULFILLED`:
@@ -34,7 +34,6 @@ export function setBlogPosts() {
     }
 }
 export function createBlogPost(admin_id, admin_name, postTitle, postURL, postBody, history) {
-    console.log(admin_id, admin_name, postTitle, postURL, postBody, history);
     return {
         type: CREATE_BLOG_POST,
         payload: axios.post('/admin/blog/posts', {admin_id, admin_name, postTitle, postURL, postBody}).then(res => {
@@ -44,7 +43,6 @@ export function createBlogPost(admin_id, admin_name, postTitle, postURL, postBod
     }
 }
 export function editBlogPost(post_id, postTitle, postURL, postBody, history) {
-    console.log(post_id, postTitle, postURL, postBody, history);
     return {
         type: EDIT_BLOG_POST,
         payload: axios.put(`/admin/blog/posts/${post_id}`, {postTitle, postURL, postBody}).then(res => {
@@ -55,11 +53,9 @@ export function editBlogPost(post_id, postTitle, postURL, postBody, history) {
     }
 }
 export function deleteBlogPost(id, history) {
-    console.log(id);
     return {
         type: DELETE_BLOG_POST,
         payload: axios.delete(`/admin/blog/posts/${id}`).then(res => {
-            console.log(res.data);
             history.push('/blog/posts');
             return res.data;
         })

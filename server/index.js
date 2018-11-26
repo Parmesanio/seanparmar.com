@@ -23,13 +23,10 @@ app.use(session({
       }
 }))
 app.use( express.static( `${__dirname}/../build` ) )
-massive(process.env.CONNECTION_STRING).then(db => {
+massive(process.env.TEST_CONNECTION_STRING).then(db => {
       app.set('db', db);
       console.log('DB Set');
 }).catch(err => console.log('Err in Massive'));
-
-// -------------- ENDPOINTS 
-
 // Auth0 Endpoint
 app.get(`/auth/callback`, aC.auth0);
 // GET SESSION

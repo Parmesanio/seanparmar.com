@@ -57,7 +57,6 @@ class BlogContainer extends Component {
     }
 
     render() { 
-        console.log(this.props);
         let blogPosts = this.withBlogData(BlogPosts, {...this.props});
         let blogForm = this.withBlogData(BlogForm, {...this.props})
         return ( 

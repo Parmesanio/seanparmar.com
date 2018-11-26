@@ -8,7 +8,6 @@ import { log } from 'handlebars';
 const Portfolio = (props) => {
     let { experiences, user } = props;
     let mappedExperience = experiences && experiences.map(exp => {
-        console.log(exp);
         return <Experience key={exp.id} {...exp} />
     })
     return ( 
@@ -21,7 +20,6 @@ const Portfolio = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     let { user } = state.user;
     let { experiences } = state.experience;
     return {
