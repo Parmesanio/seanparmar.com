@@ -20,6 +20,7 @@ const Portfolio = (props) => {
 }
 
 const mapStateToProps = state => {
+    console.log(state);
     let { user } = state.user;
     let { experiences } = state.experience;
     return {
