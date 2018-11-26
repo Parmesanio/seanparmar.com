@@ -6,13 +6,12 @@ const Experience = (props) => {
     let { title, tech, body, post_imgurl, id } = props;
     return ( 
         <div className="experience">
-            <img src={post_imgurl} />
+            <img src={post_imgurl || 'https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} />
             <h1>{title}</h1>
-            <p>{body && body.substring(0, 100)}... (<Link to={`/blog/posts/${id}`}>Read more</Link>)</p>
+            {body && <p dangerouslySetInnerHTML={{__html: body.substring(0, 100) + '...'}}></p>}
             <p>Tech used: {tech}</p>
             <div className="experience-buttons">
                 <Link to={`/blog/posts/${id}`}><button className="blogButton">Blog</button></Link>
-                <a href="https://github.com/Parmesanio/personalproject" target="_blank" rel="noopener noreferrer" ><button>Github</button></a>
             </div>
         </div>
      );

@@ -28,9 +28,15 @@ export default function blogReducer(state = initialState, action) {
 
 //Action Creators
 export function setBlogPosts() {
+    console.log('fired');
+    
     return {
         type: SET_BLOG_POSTS,
-        payload: axios.get('/admin/blog/posts').then(res => res.data).catch(err => console.log('Err in SET_BLOG_POSTS', err))
+        payload: axios.get('/admin/blog/posts').then(res => {
+            console.log(res.data);
+            
+            return res.data
+        }).catch(err => console.log('Err in SET_BLOG_POSTS', err))
     }
 }
 export function createBlogPost(admin_id, admin_name, postTitle, postURL, postBody, history) {

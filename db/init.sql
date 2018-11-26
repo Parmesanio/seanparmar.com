@@ -59,7 +59,6 @@ SELECT TO_CHAR(blog_posts.posting_date :: DATE, 'Mon dd, yyyy') from blog_posts;
 create table experiences(
 id bigint primary key default make_random_id(),
 exp_imgurl text,
-description text,
 tech text
 );
 CREATE SEQUENCE experiences_id_seq OWNED BY experiences.id;
