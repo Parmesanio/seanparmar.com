@@ -6,15 +6,17 @@ module.exports = {
         const db = req.app.get('db');
         db.get_blog_posts().then(posts => {
             fs.readdir('./server/markdown/', (err, files) => {
-                console.log('inside fs.readdir', posts)
                 files.forEach((file, i) => {
+                    console.log(file)
                     fs.readFile(posts[i].body, 'utf-8', (err, data) => {
                             if(err) throw err;
                             var newBody = converter.makeHtml(data);
                             posts[i].body = newBody
+                            console.log('posts[i]', posts[i]);
                     })
                 })
                 setTimeout(() => {
+                    console.log('POSTS',posts);
                     res.send(posts)
                 }, 100)
             })

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUser, logout } from '../../redux/userReducer';
 import { setExp } from '../../redux/expReducer';
+import { setBlogPosts } from '../../redux/blogReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './header.scss';
 
@@ -13,6 +14,7 @@ class Header extends Component{
     componentDidMount() {
        this.props.setUser();
        this.props.setExp();
+       this.props.setBlogPosts();
     }
     handleToggle = () => {
         this.setState({
@@ -57,6 +59,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     setUser,
     logout,
-    setExp
+    setExp,
+    setBlogPosts
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
