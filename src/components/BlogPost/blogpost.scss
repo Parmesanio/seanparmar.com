@@ -21,13 +21,6 @@
             font-size: 4vw;
             margin: 0.5em auto;
         }
-        // img {
-        //     position: absolute;
-        //     top: 70px;
-        //     left: 0;
-        //     right: 0;
-        //     max-height: 50vh;
-        // }
         .blog-body {
             background: #fff;
             border-radius: 3px;
@@ -60,6 +53,9 @@
                         padding: 1em 0.5em;
                         width: 100%;
                     }
+                }
+                code {
+                    font-size: 2vh;
                 }
             }
         }
