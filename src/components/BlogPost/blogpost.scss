@@ -61,10 +61,6 @@
                         width: 100%;
                     }
                 }
-                code {
-                    // display: inline-block;
-                    font-size: 0.7em;
-                }
             }
         }
     }
@@ -91,6 +87,26 @@
                 width: 100%;
             }
 
+    }
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .blog-posts {
+        #blog-post {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            h1 {
+                font-size: 3vw;
+            }
+            p {
+                h2, h3 {
+                    font-size: 2vw;
+                }
+            }
+            h3, span {
+                font-size: 1.5vw;
+            }
     }
     }
 }
