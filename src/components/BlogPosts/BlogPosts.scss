@@ -2,14 +2,14 @@
     .blog-posts {
         min-height: 100vh;
         div {
-            margin: 1em auto;
+            margin: 0 auto 1em auto;
             width: 90%;
             p {
                 text-align: left;
             }
         }
         .image-container {
-            height: 200px;
+            // height: 200px;
             width: 100%;
         }
     }
@@ -20,7 +20,7 @@
             width: 40%;
         }
         .image-container {
-            height: 300px;
+            // height: 300px;
             width: 100%;
         }
     }

@@ -4,7 +4,7 @@
     background: $primary-background-color;
     color: #f4f4f4;
     display: inline-block;
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 @media only screen and (min-width: 0px) {
     #blog-post {
@@ -21,13 +21,13 @@
             font-size: 4vw;
             margin: 0.5em auto;
         }
-        img {
-            position: absolute;
-            top: 70px;
-            left: 0;
-            right: 0;
-            max-height: 50vh;
-        }
+        // img {
+        //     position: absolute;
+        //     top: 70px;
+        //     left: 0;
+        //     right: 0;
+        //     max-height: 50vh;
+        // }
         .blog-body {
             background: #fff;
             border-radius: 3px;
@@ -75,11 +75,13 @@
             width: 70%;
             display: flex;
             flex-direction: column;
-            img {
-                position: inherit;
-            }
             h1 {
                 font-size: 5vw;
+            }
+            p {
+                h2, h3 {
+                    font-size: 4vw;
+                }
             }
             h3, span {
                 font-size: 1.5vw;
