@@ -34,7 +34,7 @@ First things first though, lets install some packages.
 Once you have setup a basic express server read on below.
 
 ### **Creating & Storing Markdown Files**
-Looking at the <a href="https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback" target="_blank">documentation</a> for ```fs.writeFile()`` gives us an example of, well, creating a file:
+Looking at the <a href="https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback" target="_blank">documentation</a> for ```fs.writeFile()``` gives us an example of, well, creating a file:
 
 ```
 const data = new Uint8Array(Buffer.from('Hello Node.js'));
@@ -57,17 +57,23 @@ Now we need to dynamically name this .md file.  in my case, I am trying to creat
 
 Here's what it looks like:
 
-```./path-to-markdown-folder/markdown/${req.body.postTitle}.md```
+```
+./path/markdown/${req.body.postTitle}.md
+```
 
 Here's what we have so far:
 
-```fs.writeFile(`./path-to-markdown-folder/markdown/${req.body.postTitle}.md`, data, cb)```
+```
+fs.writeFile(`./path/markdown/${req.body.postTitle}.md`, data, cb)
+```
 
-Lets work on the data.  In the example from the documentation the data was basically hard coded.  The data I'll be receiving will change depending on what I post.
+Lets work on the data.  The documentation's example had static data, but the data I'll be receiving will change depending on what I post.
 
 Like the post's title, I'll be grabbing the post's body off ```req.body```.
 
-```fs.writeFile(`./path-to-markdown-folder/markdown/${req.body.postTitle}.md`, req.body.postBody, cb)```
+```
+fs.writeFile(`./path/markdown/${req.body.postTitle}.md`, req.body.postBody, cb)
+```
 
 All we need to do is define the callback function.
 
@@ -76,12 +82,12 @@ It was at this point I realized I did not have a way to link the markdown file t
 Here's my create method in full:
 
 ```
-fs.writeFile(`./path-to-markdown-folder/markdown/${req.body.postTitle}.md`, req.body.postBody, (err) => {
-            if (err) throw err;
-            let { admin_id, admin_name, postTitle, postURL } = req.body
-            db.create_blog_post(admin_id, admin_name, postTitle, postURL, `./path-to-markdown-folder/markdown/${req.body.postTitle}.md`).then(posts => {
-                res.send(posts)
-            }).catch(err => console.log('err in create_blog_post', err));
+fs.writeFile(`./path/markdown/${req.body.postTitle}.md`, req.body.postBody, (err) => {
+    if (err) throw err;
+    let { admin_id, admin_name, postTitle, postURL } = req.body
+    db.create_blog_post(admin_id, admin_name, postTitle, postURL, `./path/markdown/${req.body.postTitle}.md`).then(posts => {
+        res.send(posts)
+    }).catch(err => console.log('err in create_blog_post', err));
       })
 ```
 
@@ -129,7 +135,7 @@ We will be combining ```fs.readdir()``` with ```fs.readFile()``` **inside** my `
 ```
 ...
 
-fs.readdir('./path-to-markdown-folder/markdown/', (err, files) => {
+fs.readdir('./path/markdown/', (err, files) => {
   let fileArray = []
   files.forEach((file, i) => {
       console.log(posts[i].body);

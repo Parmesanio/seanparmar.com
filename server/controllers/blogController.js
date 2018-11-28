@@ -7,16 +7,13 @@ module.exports = {
         db.get_blog_posts().then(posts => {
             fs.readdir('./server/markdown/', (err, files) => {
                 files.forEach((file, i) => {
-                    console.log(file)
                     fs.readFile(posts[i].body, 'utf-8', (err, data) => {
                             if(err) throw err;
                             var newBody = converter.makeHtml(data);
                             posts[i].body = newBody
-                            console.log('posts[i]', posts[i]);
                     })
                 })
                 setTimeout(() => {
-                    console.log('POSTS',posts);
                     res.send(posts)
                 }, 100)
             })

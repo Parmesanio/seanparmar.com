@@ -1,4 +1,11 @@
 @import '../../index.scss';
+// MIXINS
+@mixin codeTag {
+    background: $primary-background-color;
+    color: #f4f4f4;
+    display: inline-block;
+    font-size: 0.7em;
+}
 @media only screen and (min-width: 0px) {
     #blog-post {
         min-height: 100vh;
@@ -6,6 +13,7 @@
         width: 100%;
         h1 {
             color: $primary-color;
+            font-weight: bold;
             font-size: 10vw;
         }
         h3, span {
@@ -25,12 +33,38 @@
             border-radius: 3px;
             padding: 0.5em;
             width: 95%;
-            p > h1 {
-                font-size: 6vw;
-            }
-            p > * {
-                margin: inherit;
-                padding: inherit;
+            p {
+                h2, h3 {
+                    font-weight: bold;
+                    font-size: 6vw;
+                    margin: 0.7em auto;
+                }
+                a {
+                    color: $primary-color;
+                }
+                li {
+                    margin-left: 0.5em;
+                    list-style-type: disc;
+                    list-style-position: inside;
+                }
+                pre {
+                    white-space: pre-wrap;       /* Since CSS 2.1 */
+                    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+                    white-space: -pre-wrap;      /* Opera 4-6 */
+                    white-space: -o-pre-wrap;    /* Opera 7 */
+                    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+                    overflow: hidden;
+                    code {
+                        @include codeTag();
+                        margin: 0.8em 0;
+                        padding: 1em 0.5em;
+                        width: 100%;
+                    }
+                }
+                code {
+                    // display: inline-block;
+                    font-size: 0.8em;
+                }
             }
         }
     }
@@ -40,7 +74,6 @@
         #blog-post {
             width: 70%;
             display: flex;
-            max-height: 50vh;
             flex-direction: column;
             img {
                 position: inherit;
