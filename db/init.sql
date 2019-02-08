@@ -20,7 +20,7 @@ BEGIN
  RETURN ((l1::bigint << 16) + r1);
 END;
 $$ LANGUAGE plpgsql strict immutable;
--- create sequence random_int_seq;
+create sequence random_int_seq;
 create function make_random_id() returns bigint as $$
   select pseudo_encrypt(nextval('random_int_seq')::int)
 $$ language sql;
@@ -48,6 +48,7 @@ create table blog_posts (
     title text,
     author text,
     body text,
+    post_url text,
     posting_date date not null default current_date
 );
 CREATE SEQUENCE blog_posts_id_seq OWNED BY blog_posts.id;
@@ -59,6 +60,7 @@ SELECT TO_CHAR(blog_posts.posting_date :: DATE, 'Mon dd, yyyy') from blog_posts;
 create table experiences(
 id bigint primary key default make_random_id(),
 exp_imgurl text,
-tech text
+tech text,
+blog_id bigint references blog_posts(id)
 );
 CREATE SEQUENCE experiences_id_seq OWNED BY experiences.id;

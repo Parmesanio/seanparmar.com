@@ -1,96 +1,74 @@
-@import '../../index.scss';
+@import "../../index.scss";
 @media only screen and (min-width: 0px) {
-    /*----- Split Screen Begin -----*/
-  #wrapper {
-    min-height: 55vh;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  .layer {
-    min-height: 55vh;
-    overflow: hidden;
-    position: absolute;
-    width: 100vw;
-    .content-wrap {
-        min-height: 55vh;
-        position: absolute;
-        width: 100vw;
-      }
-      .content-body {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
+  #showcase {
+    background: $primary-background-color;
+    background-image: linear-gradient(135deg, $primary-background-color 75%, $primary-color 25%);
+    display: flex;
+    .showcase-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+      div:first-child {
+        .socials {
+          margin-top: 1.5em;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          a {
+            color: $primary-color;
+            transition: 0.35s all;
+            margin: 0 0.2em;
+            &:hover {
+              color: $primary-color-light
+            }
+          }
+        }
       }
       h1 {
-        color: $primary-color;
-          font-size: 1.5em;
+        color: $text-color;
+        font-size: 4.5vh;
+        font-weight: 700;
+      }
+      hr {
+        border-color: $text-color;
+      }
+      p {
+        color: $text-color;
+      }
     }
   }
-  .bottom {
-    z-index: 1;
-    h1 {
-        color: $primary-background-color;
-    }
-  }
-  .top {
-    background: $primary-background-color;
-    color: $primary-color;
-    width: 50vw;
-    z-index: 2;
-  }
-  .handle {
-    background: $primary-color;
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 5px;
-    z-index: 3;
-  }
-  .skewed .handle {
-    height: 200%;
-    top: 60%;
-    transform: rotate(30deg) translateY(-50%);
-    transform-origin: top;
-  }
-  .skewed .top {
-    margin-left: -1000px;
-    transform: skew(-30deg);
-    width: calc(50vw + 1000px)
-  }
-  .skewed .top .content-wrap {
-    margin-left: 1000px;
-    transform: skew(30deg);
-  }
-/*----- Split Screen End -----*/
 }
 @media only screen and (min-width: 768px) {
-    #wrapper {
-        min-height: 65vh;
-    }
-    .skewed {
-        .handle {
-            top: 56%;
-        }
-    }
-    .layer {
-        min-height: 65vh;
-        h1 {
-            font-size: 2em;
-        }
-        .content-wrap {
-            min-height: 65vh;
-        }
-    }
 }
 @media only screen and (min-width: 1024px) {
-  .skewed {
-    .handle {
-      top: 60%;
-    }
+  #showcase {
+    background-image: linear-gradient(135deg, $primary-background-color 70%, $primary-color 30%);
+    .showcase-container{
+      max-width: 900px;
+      div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        hr {
+          border-color: $primary-color;
+          margin: 1.5em 0;
+          width: 20%;
+        }
+        .socials {
+          justify-content: space-between;
+          width: 20%;
+          a {
+            margin: 0;
+            &:hover {
+              color: $primary-color-light
+            }
+          }
+        }
+      }
+    } 
+      
   }
 }

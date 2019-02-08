@@ -13,7 +13,9 @@ code {
     monospace;
 }
 
-$primary-background-color: #282c34;
-$primary-background-color-light: #333842;
+$primary-background-color: rgba(57, 63, 74, 1);
+$primary-background-color-light: rgba(67, 73, 87, 1);
 $primary-color: #FB8261;
+$primary-color-light: lighten($primary-color, 5);
+$text-color: #fff;
 $padding-top: 70px;

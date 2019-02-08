@@ -1,19 +1,48 @@
+@import "../../index.scss";
 @media only screen and (min-width: 0px) {
     .blog-posts {
         min-height: 100vh;
         div {
-            margin: 0 auto 1em auto;
+            margin: 2em auto;
             width: 90%;
             p {
+                margin-bottom: 2em;
                 text-align: left;
             }
         }
         .image-container {
             width: 100%;
         }
+        .blog-thumbnail {
+            .read-more-link {
+                background: $primary-color;
+                border: none;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                display: block;
+                font-weight: bold;
+                padding: 12px;
+                width: 100%;
+                transition: 0.35s all;
+                &:hover {
+                    background: $primary-color-light
+                  }
+            }
+        }
     }
 }
 @media only screen and (min-width: 768px) {
+    .blog-posts {
+        div {
+            width: 50%;
+        }
+        .image-container {
+            width: 100%;
+        }
+    }
+}
+@media only screen and (min-width: 1024px) {
     .blog-posts {
         div {
             width: 40%;

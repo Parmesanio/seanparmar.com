@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./contact.scss";
-
-const Contact = () => {
+const ContactDesktop = props => {
   //NODEMAILER
   //reset
   const resetForm = () => {
@@ -23,9 +21,9 @@ const Contact = () => {
     });
   };
   return (
-    <div className="contact-mobile">
+    <div className="contact-desktop">
       <form id="contact-form" onSubmit={event => event.preventDefault()}>
-        <h1>Inquiries</h1>
+        <h1>Get In Touch!</h1>
         <input id="name" type="text" placeholder="Full Name" required />
         <input
           id="email"
@@ -40,4 +38,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactDesktop;

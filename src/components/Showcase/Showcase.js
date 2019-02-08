@@ -1,45 +1,55 @@
-import React from 'react';
-import './showcase.scss';
+import React from "react";
+import Contact from "../Contact/Contact";
+import "./showcase.scss";
+import ContactDesktop from "../Contact/ContactDesktop";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Showcase = () => {
-    //Split Screen Function
-    setTimeout(() => {
-  let wrapper = document.getElementById('wrapper');
-  let topLayer = wrapper.querySelector('.top');
-  let handle = wrapper.querySelector('.handle');
-  let skew = 0;
-  let delta = 0;
-  if(wrapper != null) {
-    //If class isn't found, result will be -1 (true)
-  if (wrapper.className.indexOf('skewed') != -1) {
-    skew = 1000;
-  }
-  wrapper.addEventListener('mousemove', function(e) {
-    delta = (e.clientX - window.innerWidth / 2) * 0.5;
-    handle.style.left = e.clientX + delta + 'px';
-    topLayer.style.width = e.clientX + skew + delta + 'px';
-  });
-  }
-}, 500)
-    return ( 
-        <section id="wrapper" className="showcase skewed">
-            <div className="layer bottom">
-                <div className="content-wrap">
-                <div className="content-body">
-                    <h1>IOS Developer</h1>
-                </div>
-                </div>
-            </div>
-            <div className="layer top">
-                <div className="content-wrap">
-                <div className="content-body">
-                    <h1>Web Developer</h1>
-                </div>
-                </div>
-            </div>
-            <div className="handle"></div>
-        </section>
-        );
-}
- 
+  return (
+    <section id="showcase">
+      <div className="showcase-container">
+        <div>
+          <h1>
+            Hello, I'm Sean,
+            <br /> a Web Developer
+          </h1>
+          <hr />
+          <p>Currently seeking new job opportunities.<br /><br />Get in touch!</p>
+          <div className="socials">
+            <a
+              href="https://www.linkedin.com/in/sean-parmar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
+            </a>
+            <a
+              href="https://github.com/Parmesanio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </a>
+            <a
+              href="https://codepen.io/Parmesanio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={["fab", "codepen"]} />
+            </a>
+            <a
+              href="https://itunes.apple.com/us/developer/sean-parmar/id1356437548?mt=8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={["fab", "app-store"]} />
+            </a>
+          </div>
+        </div>
+        <ContactDesktop />
+      </div>
+    </section>
+  );
+};
+
 export default Showcase;
