@@ -7,13 +7,9 @@ import OffSkills from "../Charts/OffSkills";
 const Skills = () => {
   return (
     <section className="skills">
-      <h1>About</h1>
+      <h1>Skills</h1>
       <div className="skills-container">
         <div className="about">
-          <p>
-            Block of text representing crap about me I guess. Boring, generic
-            facts go here.
-          </p>
         </div>
         <div className="skill-container">
           <div className="skill">
