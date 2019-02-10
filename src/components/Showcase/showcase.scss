@@ -60,12 +60,6 @@
         .socials {
           justify-content: space-between;
           width: 20%;
-          a {
-            margin: 0;
-            &:hover {
-              color: $primary-color-light
-            }
-          }
         }
       }
     } 

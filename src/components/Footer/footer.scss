@@ -4,8 +4,23 @@ footer {
     background: $primary-background-color;
     min-height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    .socials {
+        margin-top: 1.5em;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        a {
+          color: $primary-color;
+          transition: 0.35s all;
+          margin: 0 0.2em;
+          &:hover {
+            color: $primary-color-light
+          }
+        }
+      }
     p {
         color: $primary-color;
     }

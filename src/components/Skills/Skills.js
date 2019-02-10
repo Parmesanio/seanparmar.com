@@ -1,8 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./skills.scss";
-import MainChart from "../Charts/MainChart";
-import OffSkills from "../Charts/OffSkills";
 
 const Skills = () => {
   return (

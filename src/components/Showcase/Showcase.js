@@ -1,5 +1,4 @@
 import React from "react";
-import Contact from "../Contact/Contact";
 import "./showcase.scss";
 import ContactDesktop from "../Contact/ContactDesktop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
